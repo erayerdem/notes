@@ -1,0 +1,72 @@
+UML
+
+ uml de implements ediyorsa  ------|> biçiminde 
+
+ uml de extends ediyorsa   boşluksuz biçimde gösterilir üçgen biçim
+
+
+dörtgen var list biçimde var demek içi dolu
+
+
+### Loose Coupling
+
+Bir nesne kullandığı diğer bir nesne
+hakkında ne kadar fazla detay bilgiye sahip ise, o nesneye olan bağımlılığı o oranda artar.
+
+###Open Closed Principle
+
+Gelişime açık değişime kapalı mevcut kod değişerek değil
+
+Örnek Alan hesaplarken gelen kontrol
+
+###Stratejik Kapama
+
+Gelecek değişiklikleri kestirmek zor deneyımlı ol
+
+
+###Single Responsebility
+
+Herkes kendi sorumluluğunda 
+
+
+###Liskov Substitution Principle
+
+Alt sınıflardan oluşturulan nesneler üst sınıfların nesneleriyle yer değiştirdiklerinde aynı davranışı
+göstermek zorundadırlar
+
+İnterface ile onu implemement edenler aynı metoda sahip olmalı gibi
+
+Lsp ye ters düşen ocp ye de ters düşer 
+
+
+###Dependency Inversion Principle
+
+Bu prensibe göre somut sınıflara olan bağımlılıklar soyut sınıflar ve interface sınıflar kullanılarak
+ortadan kaldırılmalıdır, çünkü somut sınıflar sık sık değişikliğe uğrarlar ve bu sınıflara bağımlı
+olan sınıflarında yapısal değişikliğe uğramalarına sebep olurlar.
+
+
+###Interface Segregation Principle
+
+Birbiriyle ilişkili olmayan birçok metodu ihtiva eden büyük bir interface sınıf yerine, birbiriyle91
+ilişkili (cohesive) metotların yer aldığı birden fazla interface sınıfı daha makbuldür.
+
+
+
+ 		###Paket Tasarım Prensipleri###
+
+
+
+Iyi Bir Tasarım
+
+Iyi bir tasarım oluşturmak için takip edilmesi gereken bazı tasarım prensipleri şunlardir:
+	Kalıtım (inheritance) yerine kompozisyon kullanılmalıdır.
+	Statik metot ve Singleton yapılar kullanılmamalıdır.
+	Bağımlılıkların izole edilmesi gerekir.
+	Bağımlılıkların enjekte edilmesi testleri kolaylaştırır.
+
+
+	Oluşturucu Tasarım Şablonları -
+	Creational Patterns
+
+ 	

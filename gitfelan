@@ -1,0 +1,91 @@
+git init
+ls -la
+git status    repo içindeki duruma bak eklenmişmi eklenmemiş mi felan 
+git add -all
+git add .
+
+git add <dosya> ; Bir dosyayı depoya eklemek için seçer.
+git add <dizin> ; Tanımlanan dizin içindeki tüm dosyaları depoya eklemek için 
+
+git commit -m "mesaj "
+
+rm dosyaname     silme  dosya dizinde sildik projemizden
+
+git rm dosyaname.txt
+
+echo "*.test" > .gitignore   .test olan lar eklenmeyecek 
+
+cat .gitignore
+
+--global user.name Özcan
+
+--global user.email acar@agilementor.com
+
+git config --global core.editor pico
+
+
+git config --global alias.st status
+
+
+<de po-dizin i>/ .g it / con f ig - depoya has genel ayarları ihtiva eder.
+
+<ku l l an ıcı-dizin i>/ .g it con f ig - Kullanıcıya has ayarlar, email name
+/etc/gitconfig-Sistem genelinde geçerli Git ayarlarını ihtiva eder.
+
+
+git clone projem.git/ projem-clone
+
+git log    her commit in hash gösterir 
+
+git show hash    -> her commit im cart curt ne yapıldığı bilgisi
+
+git log --author="acar" --oneline    belirli kullanıcıya ait commitler
+
+
+git log test2   dosyasının commitleri
+
+
+git revert 3cadx456   commit de yapılan değişiklikleri geri alma 
+
+
+git tag -a v3.0.0 -m "3.0.0 version created" versiyon oluşturma  güncel commit 
+
+ile ilişkilendirir
+
+
+git tag v4.0.0   basit bir şekilde oluşturma 
+
+git tag -a v1.2.0 -m 'version 1.2.0' 55962fc başka commit le ilişkilendirme 
+
+diyelimki versiyon vermeyi unuttuk
+
+git push origin --tags  etiketleri repoya yollama
+
+Git commit --amend ile son commit nesnesi için girilen mesajı değiştirebiliriz.
+
+git branch bulunduğun branch  
+
+git branch branchname yeni bir branch 
+
+git branch -d branchname  branch silme
+
+git checkout branch-a  branch değiştirme 
+
+
+git checkout -b branch-a yeni branch değiştir ve yeni bir branch oluştur 
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+

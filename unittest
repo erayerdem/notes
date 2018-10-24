@@ -1,0 +1,147 @@
+ 	mockito ile web business data integrasion layerleri kontrol edilir .
+
+ 				List mock = mock(List.class);  --> kendi sınıflarında olabilir.
+    			interface a {
+
+    				public String getString();
+    			}
+ 				a a=mock(a.class);
+ 				when(a.getString).thenReturn("112");  ---> gibi kurallara uy 
+
+ 				@Before    Kullan 
+ 				@After
+
+ 				@RunWith(MockitoJUnitRunner.class)
+				public class SomeTest {
+    			@Mock      
+    			Dao mock ----- Dao dao=mock(Dao.class);list veya interface can  
+    			@InjectMocks 
+    			Business business;  ------ Business b=new Business(); 
+			
+			when(list.get(0)).thenReturn("samet").thenReturn("ahmet");     		ilk çağırdığında ikinci çağırdığında return value 
+		
+		tanımlamadığın bir when çağırdığında numeric için 0 object tipinde null 
+		boolean değerde false döner .
+
+		when(list.get(12)).thenReturn("12");
+        when(list.get(anyInt())).thenReturn("ahmet");
+
+        
+        kaç defa felan filan hangi sayılarla
+       
+        doğrulama
+        verify(mock).get(0); 	 --->   1 defa çağırıldı
+        verify(mock,times(2)).get(anyInt());  ---> 2 defa çağırıldı 
+        verify(mock,atLeast(1)).get(anyInt()); ---< en az bir defa
+        verify(mock,atMost(2)).get(anyInt()); ---> en fazla 2 
+        verify(mock,never()).get(anyInt());	 ---> never 
+        verify(mock,atLeastOnce()).get(anyInt()); --> en az bir 
+
+        	list.get(112);
+        verify(list).get(112);   get metodu 112 ile bir defa çağırıldı
+
+
+ 	     girilen değer kontrol için  
+
+		list.add("qq");
+        list.add("11");
+
+        ArgumentCaptor<String> stringArgumentCaptor=ArgumentCaptor.forClass(
+        String.class);
+        verify(list,times(2)).add(stringArgumentCaptor.capture());
+            assertEquals("qq",stringArgumentCaptor.getAllValues().get(0));
+            assertEquals("11",stringArgumentCaptor.getAllValues().get(1));
+            -->  bütün parametreleri captor a aktarır ordan işlem yapılır.
+
+            List xx=mock(List.class);
+            ArrayList xx=spy(ArrayList.class);
+            
+            mock original sınıf özelliklerini göstermez her zaman override lazım
+            spy original sınıf özellikleribi gösterir override de edebilirsin.
+
+		list=spy(ArrayList.class);
+        when(list.size()).thenReturn(12);
+        assertEquals(12,list.size()); // true
+
+        static metodlar hashcode equals felan çağırılamaz .
+
+        bunun için farklı bir lib var mockito static ara at google 
+        
+
+    }		
+
+
+SPRING BOOT TEST  
+
+		@RunWith(SpringRunner.class)
+		//@WebMvcTest(value = Controller.class)  class yazarsan sadece o classda arar 
+		@WebMvcTest                              yazmazsan tüm projede 
+		public class NameControllerTEst {
+    		@Autowired
+    		private MockMvc mockMvc;
+
+   	 @Test
+    public void testgetName() throws Exception {
+        MockHttpServletRequestBuilder accept = MockMvcRequestBuilders.get("/name").accept(MediaType.APPLICATION_JSON);
+
+        MvcResult mvcResult = mockMvc.perform(accept).andReturn();
+        mvcResult mockMvc.perform(get("/name").accept(MediaType.APPLICATION_JSON));  --> böylede olur methodlar static		
+        
+        assertEquals(mvcResult.getResponse().getContentAsString(), "samet eray");    --> dönen response testi
+
+        mockMvc.perform(get("/name").
+                accept(MediaType.APPLICATION_JSON)).
+                andExpect(status().isOk()).andExpect(content().string("samet 1eray"));
+                --> kodu tek satıra indirme 
+ 
+	not // JSON OLARAK TEK STRING DONUYORSA assertKullnamanagerek yok
+
+
+    }
+
+}
+
+json kontrol
+ mockMvc.perform(get("/pojo").accept(MediaType.APPLICATION_JSON))
+            .andExpect(content().json("{\"i\":  1, \"name\":\"samet\",\"surname\":\"eray\"}"));
+
+// json olan yeni string yaparsan int de felan boşluk olursa sorun çıkarır json kontrol her zaman daha iyi 
+ve mesela json property de birşey eksik json hata vermez
+
+        JSONAssert.assertEquals(value,"{\"i\":  1, \"name\":\"samet\",\"surname\":\"eray\"}",true);
+
+// json kontrol yapar diğer bir methotdur. true yaparsan hepsini karşılaştırı false yaparsan olduğu kadarına bakar tru yapıp hepsini vermezsen patlar.
+
+kaçıs karakterlerine gerek yoktur 
+
+String a="id:1,name:samet,qq:mehmet";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

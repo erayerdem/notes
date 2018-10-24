@@ -1,0 +1,115 @@
+ 
+  Most common
+	--> Logging 
+ 	--> CheckSecurity
+ 	--> Transactions
+  Autid logging
+  who what when where 
+  Exception handling
+  	log exception and notift devops team via sms/email
+
+  	api management
+  			how many times has a method called user
+
+  			analiz what are peak times what is average load who is top user ?
+
+dezavantajlar
+çok fazla aspect olması karmaşaya sebep olur 
+küçük bir yürütme maaliyeti sağlar .
+
+ADVICE TYPES 
+	
+	Before Advice ----- run before the method 
+	After finally advice ---- run after the  method  (finally)
+	after returning advice --- run after the method (succes execution)
+	after throwing advice  --- exception atarsa
+ 	around advice  run before and after method 
+ 		
+WEAVING 
+		COMPILE TIME-- LOAD TIME  --- RUN TIME 
+		RUN TIME EN YAVAS 
+
+			---------
+
+ 		
+ 		ASPECTJ 
+
+ 		join points method level i consructor, field 
+ 		weaving compile time post compile time load time 
+ 		spring aop dan hızlı daha gelişmiş any pojo , spring bean olmasına gerk yok
+ 		biraz zor ve  derlemek zamanı içiçn ekstra ayar lazım sytanxı zor 
+ 			
+
+ 			Spring AOP
+
+
+ 	Security transactions caching etc	 PARA ÇEKME FELAN GÜVENLİK İŞLEMLERİ
+ 	run time kullanır
+
+	spring aop kullanmak daha kolay  aspect j ye de kolay geçilebilir .proxy kullanır
+
+	sadece method level, spring app context dekiler kullanır,run times minor perfmnce
+
+
+@Before  Advice
+
+Spring Aop bazı aspect j class larını kullanır bu yüzden aspect j ekle ppm xml e 
+
+@Before("execution(public void yazma())")
+@AfterReturning("execution(public void yazma())")
+@AfterThrowing("execution(public void yazma())")
+@After("execution(public void yazma())")
+
+@SpringBootApplication
+@EnableAspectJAutoProxy
+public class AspectlogApplication {
+		
+		
+
+}
+
+Restfull ile uri lar birlikte çalışır 
+
+* her şeyle eşleşir 
+
+pointcut için 2 şey gerekli  return method name
+declaring type package.class
+
+spring aop public veya boş destekler .
+
+		
+dont forget
+
+*  getAll(); yıldız return type tutar 
+
+System.*  getAll(); system içindeki bütün metodlar 
+
+String  get*();       get ile başlayan her şey
+
+String getAll();  bütün gelAll metodları 
+
+String  MyWorkspace.getAll();  myworkspace içindeki getAll metodu 
+
+
+  () parametre yo 
+  (*)  bir parametre herhangi bir tip
+  (..) 0 veya daha  fazla herhangi tipler 
+
+pointcount verirken normal method adi no  lcc
+
+
+@Order(1) sınıf ve method seviyesinde yazılır  düşük öncelikli çalışır 
+
+negatif sayıda verilir 
+iki tane order aynı olursa rastgele seçer ve girer 
+
+class Point {
+
+@Pointcut("execution(* aspectandlog4j.*.*.*())")
+	public void VOID(){}
+}
+
+@Before("aspectandlog4j.aspectlog.Point.VOID()")
+
+aspectandlog4j deki herhangi pakettden herhangi class
+herhangi bir method 

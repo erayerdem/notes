@@ -1,0 +1,9 @@
+kocaman bir projeyi tek bir uygulamada yönetmek denebilir. büyük resmi parçalamak. 
+		ureka serves registery 
+		feign client 
+		rest template 
+
+enablediscoveryclient demesende olur 
+gateway servislere erişim iki all var 2 serviste karışır zuul kullan netflix için eura da çözüm yapabilir ama biz istemeyiz
+
+

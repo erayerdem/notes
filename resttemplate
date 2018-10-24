@@ -1,0 +1,33 @@
+@Bean
+    CommandLineRunner commandLineRunner() {
+
+        return new CommandLineRunner() {
+            @Override
+            public void run(String... args) throws Exception {
+            // Http entity consturctor da Multivalue tip alır onu implements edenler
+            //   Http Header ve  LinkedMultiValueMap entity yi böyle de verebilriiz
+
+            MultiValueMap<String,String> objectObjectHashMap=new LinkedMultiValueMap<>();
+           objectObjectHashMap.set("samet","eray");
+           HttpEntity<String> stringHttpEntity=new HttpEntity(objectObjectHashMap);
+            
+
+            RestTemplate restTemplate = new RestTemplate();
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML));
+            HttpEntity httpEntity = new HttpEntity(new String("sameteray"), httpHeaders);   // sol taraf body
+            HttpEntity httpEntity = new HttpEntity(new String("sameteray")); //tek body li de olur
+            restTemplate.exchange("http://localhost:8080/", HttpMethod.GET, httpEntity, String.class).getBody();
+             restTemplate.exchange("http://localhost:8080/{id}", HttpMethod.GET, httpEntity, String.class,"12").getBody();
+             ResponseEntity<HttpStatus> exchange = restTemplate.exchange("http://localhost:8080/", HttpMethod.POST, httpEntity, HttpStatus.class);
+            restTemplate.getForObject("http://example.com/hotels/{hotel}/bookings/{booking}", String.class, "42", "21");
+            ResponseEntity<String> forEntity = restTemplate.getForEntity("http://localhost:8080/", String.class);
+            String forObject = restTemplate.getForObject("http://localhost:8080/{id}/", String.class, "12");
+            String s = restTemplate.postForObject("http://localhost:8080/{id}", new String("dasda"), String.class, "12");
+            String s1 = restTemplate.postForObject("http://localhost:8080/", new String("dasda"), String.class);
+            URI uri = restTemplate.postForLocation("http://localhost:8080/sameteray", user);
+            URI uri = restTemplate.postForLocation("http://localhost:8080/sameteray", user,URI.class);
+            }
+        };
+
+    }

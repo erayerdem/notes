@@ -1,0 +1,138 @@
+Hibernate: insert into computer (brand, keyboard, mouse, id) values (?, ?, ?, ?)
+
+Entity 
+		Persistability
+			Entity’lerin en onemli ozelligi persistable ( kalici hale getirilebilirlik / devamli hale getirilebilirlik) olma ozelligidir.
+		Identity
+			Entity , veritabanina kaydedildiginde (store) bir unique/essiz/tekil identity/kimlik bilgisi olmalidir. Persistent identity ya da identifier ayni tipteki Entity’leri birbirinden ayirmak icin kullanilan anahtardir , yani primary key bilgisidir.	
+		Transactionality
+			ROLL BACK OLARAK DÜŞÜN		
+		Granularity
+			parçacıklı halde olma String name surname; felan filan 	
+
+Nested class lar entity olamaz 
+
+Entity’ler inheritance ve polymorphism’i destekler.
+
+Abstract ve non-abstract/concrete class’lar Entity olabilir.
+
+	Acces ikiye ayrılır field ve property 
+		field her zaman ki normal kullandığımız 
+		property accces de gettter ların üstüne yazılır 
+ static degiskenler Entity State icin degerlendirmeye alinmaz , table'da
+ bir column'a karsilik gelmez.
+ 			@Entity
+			@Access(AccessType.FIELD)  
+			class Employee {            }
+				@Access(AccessType.PROPERTY)
+				public String getPhoneNumberWithCode(return "xx");
+				*** hiçbir iş yapmasa bile property de setter koymayı unutma
+
+			// Field Access ve Property access beraber kullanmak icin @Access annotation
+			// kullanmamiz gereklidir.	
+			@Transient   ---> veri tabanına yazılmaz ..  ya da private transient String mobilephone;
+			String a ;		
+
+			@Entity
+			@Table(name="EMP5")
+			
+			@Table(name="EMP5" ,schema="another.schema")    ilgili schema da oluşur tablo yoksa patlar 
+			public class Employee5 {
+
+			@Enumerated(EnumType.STRING)
+    		WORK_TIME work_time=WORK_TIME.fulltime;	
+
+    		@Temporal(TemporalType.DATE) , year month day
+			@Temporal(TemporalType.TIME) , hour minute second
+			@Temporal(TemporalType.TIMESTAMP) , year month day hour minute second	
+
+			@Lob
+			byte[] picture ;	
+
+			@Id
+			@GeneratedValue(strategy = GenerationType.TABLE)   ---> ORTAK KULLANIR YİNE
+			private int id;	                                 
+
+			@Id
+			@GeneratedValue(strategy = GenerationType.AUTO)    --> ORTAK KULLANIR YİNE 
+			private int id;
+
+
+
+			@TableGenerator(name="EMP_GEN")
+										OR 
+			@TableGenerator(name = "qq",table = "sayac",initialValue = 0,allocationSize = 100,pkColumnName = "isim",valueColumnName = "deger")
+			@Id 
+			@GeneratedValue(generator="EMP_GEN")                ---> AYRI AYRI KULLANIR	
+			private int id;
+
+
+				@Id
+				@GeneratedValue(strategy = GenerationType.SEQUENCE)
+				private int id;
+
+				OR
+
+
+			@SequenceGenerator(name="Emp_Seq_Gen", sequenceName="EMP_SEQUENCE", initialValue=20, allocationSize=30)
+			@Id @GeneratedValue(generator="Emp_Seq_Gen" , strategy= GenerationType.SEQUENCE)
+			private int id;				
+
+
+
+			@Id
+    		@GeneratedValue(strategy=GenerationType.IDENTITY)	
+    		Long id;                                ---> IDENTITY DE TEK YOL BUDUR  Generater modu yoktur.
+
+
+
+    		
+			Relationship
+				ROLE ROLE İŞTE 
+				Directionality   Unidirectional    ---- bidirectional		
+				cardiality      onetoone manytoone 	
+				Ordinality/Optionality   zorunlu veya zorunlu değil 
+
+				
+				@JoinColumn(name = "DEPT_ID")
+				private Department department;
+ 			
+  ManyToOne bir iliskide owning side her zaman Many tarafidir.Convetion geregi logical annotation’lar  , physical annotation’lardan once olmalidir. Yani @ManyToOne annotation once tanimlanmalidir.
+  				
+
+  		json important
+  			
+  			@JsonIgnoreProperties("parkingspace")  
+    		private  Student student;
+
+    		@JsonIgnoreProperties("student")
+    		private  Parkingspace parkingspace;
+
+    		@OneToOne(mappedBy = "parkingspace")   karşı sınıftaki variable adi 
+
+    		Bir iliskide target/hedef Cardinality “One” ise bu iliski turu Single-Valued ‘tur.
+
+    		ManyToOne
+		OneToOne iliskiler Single Valued Relationship ozelligi gosterirler.	
+		Bidirectional OneToMany/ManyToOne bir iliski icin inverse side her zaman One tarafidir.
+
+
+		@JoinTable(name = "EMP_PHONE", 
+		joinColumns = @JoinColumn(name = "EMP_ID"), 
+		inverseJoinColumns = @JoinColumn(name = "PHN_ID"))
+		private List phones;
+
+		Varsayilan olaran Unidirectional OneToMany bir iliski icin 3.tablo olusacaktir.
+
+		@Embedded
+	//birden fazla kolon icin isim override edilecekse @AttributeOverrides kullanilabilir.
+	//@AttributeOverrides icerisinde @AttributeOverride annotation kullanarak bu islemi yapabiliriz.
+	@AttributeOverrides(value ={
+			@AttributeOverride(name = "road", column = @Column(name = "avenue")),
+			@AttributeOverride(name = "zip", column = @Column(name = "postal_code"))
+	})
+		//eger sadece birtane kolon icin isim override edilecekse @AttributeOverride kullanilabilir.
+		//birden fazla @AttributeOverride 'i alt alta kullanmak legal degildir.
+		@AttributeOverride(name = "city", column = @Column(name = "province"))
+		private Address address;
+

@@ -1,0 +1,31 @@
+alt+insert ---->> sınıf uret 
+ctrl+n   ------> sınıf ara her yerde arar
+ctrl+shift+n  ->>> dosya ara
+ctrl+shift+alt+l   --->> kod formatlama
+ctrl+d ---> seçilen satırı kopyala yapıştır yapar.
+ctrl+ w parça parça seçmeye başlar yukarı satır method sınıf gibi
+ctrl+ shift+w parça parça seçmeyi azaltır
+ctrl+e son açılan dosyalara bakar.
+ctrl+f bulunan sınıftan kelime parçacığı arar
+ctrl+shift+f tüm projede kelime parçacığı arar
+ctrl+h sınıf hiararşısı açar
+alt+j ---> sayfadki aynı şeyleri alma
+shift+ f6 ---> sınıf isim değiştirme
+important ctrl+shift+yukarı ve aşağı  kodu taşır 
+alt+right+left --> bunu yaparak açık sınıflar arasında gezme
+ctrl+f4 -->	üzerinde bulunduğun sınıfı kapatma
+ctrl+alt+L --> kod düzenini formatlar
+CTRL+Y SATIRI YAPIŞTIRIR.
+ctrl+f12  açık sınıfta method ar
+ctrl+shift+f --> proje içinde kelime arama
+Override methods Ctrl + O
+Implement methods Ctrl + I 
+shift+enter --> start new line
+Copy F5
+Move F6
+alt+f12 terminal idea	
+ctrl+shift+slash   -> seçilen komutlar yorum yapılır.
+debug F7  ayrıntılı
+debug f8  çöp
+alt+shift+f7 en ayrıntılı 
+ctrl+w kelimeleri seçme

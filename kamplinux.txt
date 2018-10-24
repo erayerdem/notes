@@ -1,0 +1,281 @@
+#Day 1
+
+
+$i=0 ;
+while($i<=100){
+if($i%2 ==0)
+echo $i++
+}
+
+intellij idea toolbox üzerinden indir
+restfull folder olarak düşünür bütün yapıyı ? kullanma
+users/13/profiles/2/address gibi restfull un onerdıgı url yapısı
+
+patch bir kısım değiştirme put tamamı gibi
+html get post sadece destekler default get 
+browser adres cubugun sadece get isteği yapar.
+redirrect sadece get isteği yapar.
+javac jdk da bulunur
+rt.java sout  felan çoğu şey
+java geriye dönüktür java 7 9 da çalışır gibi
+transaction yönetimi (sql sorgu problemleri daha iyi kullanma spring avantaj ,)
+spring cloud microservice e çözüm bulan tek çatı büyük avantaj
+spring web flow ödeme sistemi akşını sağlar. ödeme yapmadan ürünü alamaz.
+web frameworkları compoenet ve reuest diye 2 ye ayırabiliriz.
+jsf -> component based   (koly uı tasarımı , desktop tasaırmı url yok gibi)
+spring -> request based (kolay uı özelleştirme) 
+diffrence between servlet container and application server
+ejb,cdi bean support  desteklemiyor jarları tomcat  e at orda kullan
+application serverlar kendi kütüphanelerini kullanı
+wildfly default hibernate kullanıır biz spring yazdık bizdende hibernte geldi patlayabilir wildy ly kendi frameowrk unu kullanır ezebiliriz ubnu
+spring i mutlaka tomcat kullan. best practise gibi.
+application server kullanamk fazla resource tüketir kullanma. tomcat kullan geç
+spring boot içinde tomcat embedded gelir.
+jar vs executeable jar 
+executeble jar demek manisfest dosyası var içinde oda main metodunu barındırır. manisfest(main yeri belir class.method) ve main olması  gerekir
+fatjar:servlet conteaineri barındırran uygulamalar.
+group+artifactid unique
+group = siteadi
+artifact=projeadi
+rt.jar java metholarının tamamı nerdeyse jre altında
+contextpath=ana dizin
+8080 neden jva durmadan bunu kullanır 1024 ten kucuk portlara bir porta 
+işlem bağlamak için sudo yetkısı lazım
+# en sonra hash denir sunucuya yollanmaz. linklemek için kullanır
+@RequestParam(value = "input",required = false) girmek daha iyi gelen veri boş gelirse null olarak kabul edilir.
+
+[[${message}]] html tagsiz yazmak çin
+ -> th nama space ekle 
+
+dao == dal==repository 
+
+bootstrap
+bootstrap cdn indirmicez web service den cekıcez.
+
+
+
+#DAY 2 
+Serializale -> memory deki datanın diske yazılabilmesi
+Login olan nesneyi Serializable yap tomcat için falan yararlı
+Lombok içinde @Data yı annotation olarak ekle get set def arg contr yazmaya gerek yok
+ Lombok kulllan güvenilir ve ciddi .
+//Lombok Reis
+@Data
+@Entity
+@Table(name = "APP USER")
+@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+
+CrudRepository<User,Long>  Long = id tip ;
+repositor için spring özel davranır.
+th:each  her bir user ı getir
+
+#DAY 3 
+
+mapped by = veri tipinin ad private String name ---- name yazılacak ;
+github -> bulut servis 
+checked -----> bizim kontorl edebileceğimiz
+unchecked -> runtime exception
+${user?name} 
+mapped by sahip belirler gibi felan filan
+
+memedetails yap 
+memename
+users/userid/memes/memeid
+th:object yazarak yıldızlı kullanabiliriz.
+
+memeedit
+olmayan meem olduğunda 400 gelsin
+uygulamaya 500 verdirme her zaman 400  verdir. vizyon kaybı
+
+CAREFULL THYMELAF
+pojo name LCC
+@ sunucu ve context path i seçer. İMPORTANTE
+redirect:/ slash koyarsan localhos8080 den aramaya başlar
+redirect:xxx dersen aldığı url e xxx ekler ve devam eder
+messages.properties özel isim
+
+3-tier 
+presentation |||||| busines  ||||||| persis      jimy hendrix
+path variable and meme me auto binding 
+local değişkenleri final tanımla kodun kırılganlıgı azalır
+
+#DAY 4
+
+
+
+THYMELAF action yaparken slash koymayı unutma  en başa
+
+fetch bunla getir şunla getir 
+@manytoone defult fetch eager tek bir tane getirecek performanssorunu yok
+@onetoomany default olarak fetch lazy çunku cok fazla cekerken sorun cıkarır
+lazy loading transaction içiçnde yapılır. yani bir transaction un 
+acık olması gerekir.
+spring.jpa.open-in-view=true olarak default gelir. false yap 
+daah iyi performans sağlar 
+debug ederken lazy loading dikkat et.
+transactional yazdığın metodun public olması gerekiyor.
+AllArgconsctuctor kulanırsan no arg-olmaz lombok için
+spring bizim için steratype paketının kendi oluştuduğu içiçn
+hangisini oluşturacağını bilemez ve patlar
+spring data join li olmaz
+native query dersen normal sql olarak algılar
+lazy loading 2 sorgu yapar en az 10 felan da olur yani..
+open session in view data base session açar  anti patern
+fetch type eager yapmak anti patern  istenilmeyen durum 
+javax.transaction kullan 
+//lazy default olarak yuklenmez alakasız sonra bak
+
+slf4j for logger basic log4j
+final değişkenler contrsuctro a girmez
+controlleradice bütün controller ın bütün methodları için
+not bulll vs not blank vs not empty
+binding result u validate edilecek objenın hemen yanına yaz metotda
+string lerde notblank kullanmalıyız.
+binding result notblank size column gibi şeylere bakar
+custom validation içiçn valid lazım
+
+#day 5 
+error basarken th:if yazmaya gerek yok th:errors yazmana gerek yok
+databae e yazdığın validation u  controller a da yazmalısın
+javax.validation felan her yerde kullanılır
+controller a validation koyman lazım çünkü en başta yapmalıyız 
+her yere yap daha iyi
+binding result validde edilen nesneden hemen sonra gelmelidir.
+bndign hatarı ikiye ayrılır field ve global
+ctl+shift+v paste geçmiş
+validator ile grup türleri yapılabilir
+(goodpick)view modelleri spring de otomatik olarak view modele gider.
+spring bazen birbirine bind eder duna dikkat eder.
+java c library call
+browser lar son yapılan isteği refresh yaptığımızda tekrarlar.
+get leri güvenli sorgu olarak yap veri tabanı felan yapma
+sesion a yazmka istiorsan serilazilbe yap
+dao for annotation repository
+service ler üzerinde int felan tutma yani stateless yap
+
+@Configuration altında çalışır sadece bu özellik
+
+@Bean
+EntityMnager en()
+{
+return new Entiyasd( new mydatasourcr()); yeniden data source üretmez
+direk datasource den ceker  
+}
+
+veya
+@Bean
+EntityMnager en(Data source)  // üstteki darasource u çeker
+{
+return new Entiyasd(source); 
+}
+session scope : her sesion için bir tane service
+ farklı bir tarayıcıda açtın ama yine int =0 kullanama 
+	3 olur felan filan lafajsafa
+
+request her request geldiinde oluştur sonra response yap sonra öldür.
+prototype: 
+all time work debug
+pagitating iyi bak
+classappend= class eklememize yarıyor  thymeleaf provide
+
+ 
+#######DAY 6
+
+$2a$04$BTBmpXvhzfSdECZzIV8EQOz.kqZNC7Rb4lM9lQYg86n.xM7jRPzRC
+
+$2a$04$nA7aw.yoll60r5Ni5CNWrOeAXQeUbubgLiILU6T9.QYmWvWVXbCRW
+
+$2a$04$CAFHE4NYAbmIwhKmM6tmvOmmPwHh9b4JtBGAvTNQtam9j4uWwooEW
+
+
+
+####Day 7
+th:object DTO verdiğimiz yer
+
+validation dan önce  yani önüne @Valid ekle yapacağın şeye 
+binding result @validden hemen sonra yazılmalı
+
+each verirken ikisiin yanı yapmaya bak
+
+
+
+
+errorcode+classname+fieldname 
+redirect attribute bak session da tutar bir defalığına redirect: ile çalışır bir defa burada dikkat et
+redirect:/admin ile model addattribute çalışmaz
+
+@prepostenabled=true aktif  baba
+Optimistic vs. Pessimistic locking
+wasteland
+Hibernate ENVER ARAŞTIR // YEDEKLEME
+
+
+
+
+########EKSİKLİKLER######### 
+java 8 ve niceleri        // 
+paralell programlama
+thymelaf 
+biraz daha sql      // its okey
+idea skills              // its okey 
+logging log4j or others  // its okey 
+hibernate bazı eksiklikler 
+ajax basic example 
+microservice 
+gof desing patterns
+something principle 
+something spring data
+tomcat details
+FUCKING ENGLISH
+AWS DEPLOY SOMETHING
+STAJ DEFTERİ
+UNIT TEST BLA BLA BLA ON SPRING FRAMEWORK 
+GIT MASTER LEVEL IN COMANDLINE  // its okey 
+rest template
+FEIGN
+SOME TEST
+AOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+

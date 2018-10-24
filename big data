@@ -1,0 +1,47 @@
+5 V KURALI
+
+VOLUME VELOCITY  VARIETY  VERIFITICATION VALUE
+
+hdfs verileri dağtıtık biçimde tutar 
+mapreduce işler 
+ hdfs gönderdiğimiz verileri bloklara ayırarak saklar
+ hadoop(map reduce) gönderdiğimiz dosyaları bloklara ayırarak işler
+makinelerin birbirine paralel bağlanmasına cluster adı verilir.
+
+kafka verileri toplar apache spark veya hadoop da işlenir veri tabanına aktarılır mongo dp elasticsearch
+
+
+4 çeşit nosql veri tabanı var
+
+1)document 2)wide column 3)key value 4)graph db
+
+1) mongo db=verileri json tipinde kaydeden 
+2)elastic  search
+metin arama işlmlerinde kullanılır
+oto indexleme yapılır
+
+2)hadoop hbase cassandra
+super column ayarlama yapısı var 
+
+3)key value redis dynamodb
+
+
+4)graphdb neo4j 
+
+hadoop ve temel bileşenlerri
+
+hadoop büyük veri kümeleri ile birden fazla makinada paralel olarak işlem yapmamızı sağlayan lib
+
+hadoop 4 bileşenden oluşur
+hadoop common bazi bileşenlerin hadoop a ulşamasını sağlr
+
+hdfs dosyaların dağıtık tutulması
+yani hadoop içerisinde büyük verieri sakladığımız bileşene hdfd denir veri kaybını önler
+
+hadoop yarn kaynak yönetimi
+
+hadopp mapreduce veri işleme 
+
+hue 
+apache pig ve hi bulunduruyor  içinde
+ 

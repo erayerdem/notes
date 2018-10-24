@@ -1,0 +1,106 @@
+GET İLE İSTEK YAPTIĞIMIZDA redirect ile get istediğimiz controller çağırılır.
+POST İLE İSTEK YAPTIĞIMIZDA redirect ile POST istediğimiz controller çağırılır.
+		
+	@GetMapping("pathvariable/{name}")
+       public String  tryPathVariable(@PathVariable StringBuilder name)	
+       public String  tryPathVariable(@PathVariable ("name") StringBuilder name) ayni 
+
+Kendi Exception unu yaratma  Tekil 
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ex1 extends  RuntimeException {
+		String message="yanlis url be ";
+    public ex1(String message) {
+        super(message);
+        this.message = message;
+    }
+}
+URİ uri=ServletUriComponentsBuilder
+.fromCurrentRequest().path("aah").build().toUri();
+.fromCurrentRequest().path("{ahmet}").buildAndExpand(12).toUri();
+.fromCurrentRequest().replaceQueryParam("primarykey","{i}").buildAndExpand(112).toUri();
+.fromRequest(request).replacePath("/java/exercises").build().toUri();
+
+	return ResponseEntity.created(uri).build();
+
+	return  new   ResponseEntity("samet",HttpStatus.NOT_FOUND);
+	return ResponseEntity.ok("sameterayerdem");
+	return ResponseEntity.created(locationuri).build();   CREATED & Return  created URI
+
+****** ok dışında build çağırmana gerek var ....
+
+
+@ControllerAdvice    ---> bizim için excepionları handle eder 
+@RestController     
+public class MyControllerAdvice extends ResponseEntityExceptionHandler {
+    @ExceptionHandler(ex1.class)     ---> ilgili class 
+    public final ResponseEntity<Object> ex1Exceptions(ex1 ex, WebRequest request, HttpServletRequest httpServlet) {   ---> bu parametrele değişebilir...
+    	User s1=new User();
+    	s1.setName="samet";
+    	s1.setSurname("erdem");     ----> KENDİ İÇERİKLERİNİ RETUR EDEBLİRİSİN
+
+    		return new ResponseEntity(s1,HttpStatus.NOT_FOUND);
+   }
+
+   LINUX KAMP VALIDATOR INCELE
+
+   @Override
+   protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {      ---->  Validation 
+
+    @GetMapping("getallfilter")
+    @ResponseBody
+    public MappingJacksonValue mappingJacksonValue() {
+        User user = new User(1L, "sanet", "erdem");
+        SimpleBeanPropertyFilter simpleBeanPropertyFilter = SimpleBeanPropertyFilter.filterOutAllExcept("name", "surname");    ---> istenen propertyler 
+        FilterProvider filterProvider = new SimpleFilterProvider().addFilter("BeanFilter", simpleBeanPropertyFilter);
+        MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(user);
+        mappingJacksonValue.setFilters(filterProvider);
+        return mappingJacksonValue;
+
+
+    }
+
+       // jsp ile çalşıyorsan suffix .jsp ayarla webapp altında çalış
+      // html ile çalışıyorsan suffix .html ayarla static altında çalış
+
+
+    RESTFULL LAST TRICKS 
+
+  request modelle dto model farklı olsun mutlaka
+
+  geri döndüğün modelde mutlaka status kod donder yani döndüğün modeldede olsun
+
+  httpstatus da donder 
+
+  durmadan  kullandığın datayı cache den getir  240000 veri içinde arayacak 
+
+  40 tane bu çok maaliyetli cacheden al
+
+  ssl kullan karşı tarafa şifreli gitsin
+
+  çoklu dil desteği
+
+  utc global time (yapsan iyi olur )
+
+  Kong ve TYK
+
+  HTTPİE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

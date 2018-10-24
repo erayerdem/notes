@@ -1,0 +1,36 @@
+spring den aktarırken model adi sinif name i lowercase
+		UserRoles  ------>   userRoles
+
+				TEK BİR USER YAZMA
+
+
+	<th:block>
+            <td  th:text="${user.username}"></td>
+            <td  th:text="${user.password}"></td>
+        </th:block>
+        			
+        			MODEL ATTRIBUTE E EKLEME adi ile 
+
+            <th:block th:each=" users : ${usersbro}">
+                <tr>
+                    <td th:text="${users.username}"></td>
+                    <td th:text="${users.password}"></td>
+                    <br/>
+                </tr>
+            </th:block>	
+
+
+         
+
+
+            Five types:
+
+	${...} : Variable expressions. These are OGNL expressions (or Spring EL if you have spring integrated)
+
+	*{...} : Selection expressions. Same as above, excepted it will be executed on a previously selected object only
+
+	#{...} : Message (i18n) expressions. Used to retrieve locale-specific messages from external sources
+
+	@{...} : Link (URL) expressions. Used to build URLs
+	
+	~{...} : Fragment expressions. Represent fragments of markup and move them around templates

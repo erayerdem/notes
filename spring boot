@@ -1,0 +1,7 @@
+spring boot  e posta gonderımı için java mail api kullanır
+
+E osta gönderiminde JavaMailSender interface i kullanılır
+
+spring boot java mail sender bean konfig oto yapar.
+
+spring.mail.host=localhost
