@@ -32,3 +32,5 @@ ctrl+w kelimeleri seçme
 ctrl+g go to line
 shift+home ->satırın sol tarafomda kalan kısmını seçer
 shift+end sağ tarafta kalan kısmını
+shift+left --> sol seç
+shift+rifgt-> sağ seç
