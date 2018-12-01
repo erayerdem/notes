@@ -29,3 +29,4 @@ debug F7  ayrıntılı
 debug f8  çöp
 alt+shift+f7 en ayrıntılı 
 ctrl+w kelimeleri seçme
+ctrl+g go to line
