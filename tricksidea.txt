@@ -34,3 +34,4 @@ shift+home ->satırın sol tarafomda kalan kısmını seçer
 shift+end sağ tarafta kalan kısmını
 shift+left --> sol seç
 shift+rifgt-> sağ seç
+ctrl+shift+f12 full screnn yap kod ekrnaını
