@@ -1,0 +1,55 @@
+remote method invocation
+
+spring beans daha iyiydi
+
+72 s tek çekirdekli bir sistem
+
+ jndi as dns 
+ rmi 
+ ejb 
+cdi daha performans ejb
+
+spring beans proxy ile bağlanır ilk önce
+
+cdi beanleri transcation desteklemez
+
+trancsact isityorsan ejb bean
+
+ejb nin singleton thread safe
+
+cdi da yok 
+
+cdi bean ile jpa bean yaparsan transactional olmaz @transactional koysan çalışmaz
+ 
+kendin yönetmen gerekir 
+
+ejb vs cdi 
+
+ejb rmi için düşünüşmüş
+ 
+ejb type safe değildir
+
+ ejb ninde cdi ında singleton ı var 
+
+ singleton çok kullanılıyorsa araya proxy koymaz
+
+ normalde applicaiton scope koy geç
+
+ openlibery in production
+
+ cdi springimsi 
+
+ ejb rmi , tranaction , threadler arası iletişim
+
+  
+
+
+
+
+
+ 
+
+
+ 
+
+
